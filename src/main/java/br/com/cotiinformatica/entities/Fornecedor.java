@@ -1,8 +1,14 @@
 package br.com.cotiinformatica.entities;
 
 import java.util.List;
-import java.util.UUID;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +17,9 @@ import lombok.ToString;
 
 //mapeamento para a classe assumir que tem Get e Set, construtor vazio e com argumentos, toString
 //Isso devido o uso do Lombok
-//se necessitar fazer validação em algum métido, pode escrever o método pois será que vai valer
+//se necessitar fazer validação em algum método, pode escrever o método pois este que vai valer
+@Entity
+@Table(name = "fornecedor")
 @Setter
 @Getter
 @NoArgsConstructor
@@ -19,10 +27,16 @@ import lombok.ToString;
 @ToString
 public class Fornecedor {
 
-	private UUID id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private Integer id;
+	@Column(name = "razaosocial", length = 100, nullable = false)
 	private String razaoSocial;
+	@Column(name = "cnpj", length = 20, nullable = false)
 	private String cnpj;
 	//atributo para representar muitos objetos
+	@OneToMany(mappedBy = "fornecedor")
 	private List<Produto> produtos;
 	
 	

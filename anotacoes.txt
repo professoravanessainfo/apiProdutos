@@ -1,5 +1,7 @@
 Baixar Spring Boot
 
+ferramenta Spring tools
+
 https://marketplace.eclipse.org/content/spring-tools-4-aka-spring-tool-suite-4#maint-content-area
 
 https://cdn.spring.io/spring-tools/release/TOOLS/sts4/update/e4.31/
@@ -10,3 +12,6 @@ https://mvnrepository.com/search?q=lombok
 
 Swagger - para gerar documentação
 https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-ui
+
+Para rodar o projeto provisoriamente:
+http://localhost:8080/swagger-ui/index.html#/
